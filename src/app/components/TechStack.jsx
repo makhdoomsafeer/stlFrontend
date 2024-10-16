@@ -1,90 +1,119 @@
 'use client'
 import { useState, useRef } from 'react'
-
-
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 
 function TechStackSection() {
 
     const ref = useRef(null)
-    const { scrollYProgress } = useScroll();
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["end end", "start start"],
+    });
 
     const [hookedYPostion, setHookedYPosition] = useState(0);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        console.log(latest)
         setHookedYPosition(latest);
     })
 
     return (
         <>
-            <section className="w-full h-[1024px] px-[30px] bg-[#131319] flex justify-between items-center flex-wrap overflow-hidden">
-                <div className='w-1/2 h-full flex flex-col gap-[24px] justify-center'>
-                    <h1 className='w-[402px] h-[124px] text-white text-[42px] font-bold leading-[3.859rem]'>We Use Top Notch 100% Technologies</h1>
-                    <p className='w-[617px] h-[116px] text-white text-[20px] font-normal leading[1.838rem]'>We leverage cutting-edge, 100% reliable technologies to deliver robust, high-performance solutions. Our focus on innovation ensures you get the best tools and systems tailored to your needs, driving success and efficiency.</p>
+            <section className="
+                w-full bg-[#131319] flex flex-col justify-between items-center flex-wrap overflow-hidden
+                md:flex-row
+                px-[20px] py-0
+                lg:px-[30px] lg:py-14
+            ">
+                <div className='
+                    h-full flex flex-col gap-[24px] justify-center
+                    w-full
+                    lg:w-1/2
+                '>
+                    <h1 className='
+                        text-white font-bold leading-4xl
+                        text-center w-full h-full text-[30px]
+                        lg:w-[400px] lg:h-[125px] lg:text-[42px] lg:text-left
+                    '>
+                        We Use Top Notch 100% Technologies
+                    </h1>
+                    <p className='
+                        text-white font-normal leading-2xl
+                        text-center w-full h-full text-[16px]
+                        lg-w-[620px] lg-h-[120px] lg:text-[20px] lg:text-left
+                    '>
+                        We leverage cutting-edge, 100% reliable technologies to deliver robust, high-performance solutions. Our focus on innovation ensures you get the best tools and systems tailored to your needs, driving success and efficiency.
+                    </p>
                 </div>
-                <div className='w-1/2 h-full flex justify-center items-center'>
-                    <div className='Container1'>
+                <div className='
+                    h-full flex justify-center items-center
+                    w-full scale-75
+                    lg:w-1/2 lg:scale-100
+                '>
+                    <div className='w-[597px] h-[597px] border border-solid border-white/[0.18] rounded-full flex justify-center items-center relative'>
                         <motion.div
                             ref={ref}
-                            style={{ rotate: `${hookedYPostion * -40}deg` }}
-                            className='Shell1'
+                            style={{ rotate: `${hookedYPostion * -60}deg` }}
+                            className='w-[597px] h-[597px] rounded-full absolute'
                         >
                             <motion.img
                                 ref={ref}
-                                style={{ rotate: `${hookedYPostion * 40}deg` }}
-                                className='Icon4'
-                                src={'/arrow.png'}
+                                style={{ rotate: `${hookedYPostion * 60}deg` }}
+                                className='w-[67px] h-[69px] absolute left-[159px] top-[-15px] rounded-[15px] bg-[#00D8FF] shadow-[0_6px_0_0] shadow-[#009fbc]'
+                                src={'/react.png'}
                                 alt="" />
 
                         </motion.div>
                         <motion.div
                             ref={ref}
                             style={{ rotate: `${hookedYPostion * -60}deg` }}
-                            className='Shell1'
+                            className='w-[597px] h-[597px] rounded-full absolute'
                         >
                             <motion.img
                                 ref={ref}
-                                style={{ rotate: `${hookedYPostion * -60}deg` }}
-                                className='Icon5' src={'/react.png'} alt="" />
+                                style={{ rotate: `${hookedYPostion * 60}deg` }}
+                                className='w-[67px] h-[69px] absolute left-[404px] bottom-[0px] rounded-[15px] bg-[#1766CB] shadow-[0_6px_0_0] shadow-[#003982]'
+                                src={'/arrow.png'} alt="" />
                         </motion.div>
 
-                        <div className='Container2'>
+                        <div className='w-[467px] h-[467px] border border-solid border-white/[0.18] rounded-full flex justify-center items-center relative'>
                             <motion.div
                                 ref={ref}
                                 style={{ rotate: `${hookedYPostion * 75}deg` }}
-                                className='Shell2'
+                                className='w-[467px] h-[467px] rounded-full absolute'
                             >
                                 <motion.img
                                     ref={ref}
                                     style={{ rotate: `${hookedYPostion * -75}deg` }}
-                                    className='Icon2' src={'/c+.png'} alt="" />
+                                    className='w-[67px] h-[69px] absolute top-[312px] left-[0px] rounded-[15px] shadow-[0_6px_0_0] shadow-[#003E8D]'
+                                    src={'/c+.png'} alt="" />
 
                             </motion.div>
                             <motion.div
                                 ref={ref}
-                                style={{ rotate: `${hookedYPostion * 15}deg `}}
-                                className='Shell2'
+                                style={{ rotate: `${hookedYPostion * 15}deg` }}
+                                className='w-[467px] h-[467px] rounded-full absolute'
                             >
                                 <motion.img
                                     ref={ref}
                                     style={{ rotate: `${hookedYPostion * -15}deg` }}
-                                    className='Icon3' src={'/angular.png'} alt="" />
+                                    className='w-[67px] h-[69px] absolute left-[218px] bottom-[-34px] rounded-[15px] bg-[#016EF8] shadow-[0_6px_0_0] shadow-[#00396B]'
+                                    src={'/w.png'} alt="" />
                             </motion.div>
 
-                            <div className='Container3'>
+                            <div className='w-[337px] h-[337px] border border-solid border-white/[0.18] rounded-full flex justify-center items-center relative'>
                                 <motion.div
                                     ref={ref}
-                                    style={{ rotate: `${hookedYPostion * 45}deg `}}
-                                    className='Shell3'
+                                    style={{ rotate: `${hookedYPostion * 45}deg` }}
+                                    className='w-[337px] h-[337px] rounded-full absolute'
                                 >
                                     <motion.img
                                         ref={ref}
                                         style={{ rotate: `${hookedYPostion * -45}deg` }}
-                                        className='Icon1' src={'/w.png'} alt="" />
+                                        className='w-[67px] h-[69px] absolute top-[50%] right-[-32px] rounded-[15px] shadow-[0_6px_0_0] shadow-[#960021]'
+                                        src={'/angular.png'} alt="Angular" />
                                 </motion.div>
-                                <h2 className="SaylaniText">
-                                    Saylani Tech limited
+                                <h2 className="w-[200px] text-[30px] font-medium leading[40px] text-center bg-clip-text text-transparent bg-gradient-to-r to-[white] from-[#D04C54]">
+                                    Saylani Tech Limited
                                 </h2>
                             </div>
                         </div>
